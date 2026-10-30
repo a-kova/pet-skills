@@ -1,0 +1,15 @@
+{
+  "name": "pet-skills",
+  "owner": {
+    "name": "Andrii Kovalchuk"
+  },
+  "description": "Workflow skills for solo pet projects.",
+  "plugins": [
+    {
+      "name": "pet",
+      "source": "./",
+      "description": "spec → implement → push for solo pet projects, with a two-reviewer check.",
+      "category": "engineering"
+    }
+  ]
+}
