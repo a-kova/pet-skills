@@ -1,6 +1,6 @@
 {
   "name": "pet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lean spec → implement → push workflow for solo pet projects: grill an idea into a GitHub spec, build it slice by slice, review it with two subagents.",
   "author": {
     "name": "Andrii Kovalchuk"
@@ -17,9 +17,6 @@
     "./skills/code-comments",
     "./skills/vendor/grilling",
     "./skills/vendor/writing-for-agents",
-    "./skills/vendor/domain-modeling",
-    "./skills/vendor/codebase-design",
-    "./skills/vendor/improve-codebase-architecture",
-    "./skills/vendor/diagnosing-bugs"
+    "./skills/vendor/domain-modeling"
   ]
 }
