@@ -41,6 +41,7 @@ Then open a Claude Code session in your repo and run `/pet:setup`. It asks a few
 | An idea for later | A one-line GitHub issue, then `/pet:spec #<issue>` |
 | A small, clear fix | `/pet:implement <description>`, or just ask |
 | Changes you made by just asking | `/pet:check` before you push |
+| A skill step went wrong, or you had to correct Claude | `/pet:retro` |
 
 ## Project files
 

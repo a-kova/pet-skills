@@ -1,6 +1,6 @@
 {
   "name": "pet",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A lean spec → implement → push workflow for solo pet projects: grill an idea into a GitHub spec, build it slice by slice, review it with two subagents.",
   "author": {
     "name": "Andrii Kovalchuk"
