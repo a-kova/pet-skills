@@ -21,5 +21,5 @@ The `agents/openai.yaml` files are left out; they are for Codex.
 Check every couple of months:
 
 1. Read Matt's `CHANGELOG.md` entries since the commit above, looking only for the three copied skills.
-2. Port a change by hand when it fixes something you hit; skip the rest. These copies are forks, so overwriting them would undo the changes in the table.
+2. Port a change by hand when it fixes something you hit; skip the rest. Port rather than overwrite, and mark any local edit in the table, so a later update doesn't undo it.
 3. Record the new tag and commit here, and bump the plugin version.

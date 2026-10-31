@@ -11,7 +11,8 @@ Turn the user's idea into a **spec**: an issue that says what to build, leaves n
 ## Steps
 
 1. **Load context.** When `docs/agents/issue-tracker.md` is missing, tell the user to run `/pet:setup` first and stop. Read `docs/agents/issue-tracker.md`, `docs/agents/labels.md` and `docs/agents/domain.md` when they exist. When the argument is an issue number, fetch it and its sub-issues:
-   - A spec that has sub-issues: tell the user it is ready for `/pet:implement #<n>` and stop.
+   - A spec that has sub-issues, or a one-slice spec labelled `ready-for-agent`: tell the user it is ready for `/pet:implement #<n>` and stop.
+   - A spec still labelled `needs-design`: tell the user to attach the design and remove the label, then run `/pet:spec #<n>` again, and stop.
    - A spec published without slices because of `needs-design`, with the label now removed: **resume** at step 4, using the attached design.
    - Anything else: its body is the starting idea, and step 6 updates that issue instead of creating a new one. Check its claims against `GLOSSARY.md` and the Settled decisions in `CODING_STANDARDS.md`; when the issue calls defined behaviour a bug, make that the first grilling question.
 
@@ -26,7 +27,7 @@ Turn the user's idea into a **spec**: an issue that says what to build, leaves n
 
    Done when the frontier is empty.
 
-3. **Scope.** A spec covers one scope: one feature, fix or chore. Size alone is never a reason to split into specs; step 4 handles size with slices. Propose separate specs only when the grilled idea holds unrelated scopes (for example a new feature plus an unrelated bug fix): a title and one-line scope for each, plus the order they must ship in. Steps 4–6 run once per spec.
+3. **Scope.** A spec covers one scope: one feature, fix or chore. Size alone is never a reason to split into specs; step 4 handles size with slices. Propose separate specs only when the grilled idea holds unrelated scopes (for example a new feature plus an unrelated bug fix): a title and one-line scope for each, plus the order they must ship in. Steps 4 and 6 run once per spec; step 5 confirms all of them in one summary.
 
 4. **Slice.** Cut the spec into **tracer bullets**: thin end-to-end slices, each building on the last, each leaving the app working, each small enough to build in one fresh context window.
    - **One slice**: the spec is a single issue. Its body gets the Technical notes and Acceptance criteria sections of the template.

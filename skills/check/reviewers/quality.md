@@ -1,8 +1,8 @@
 # Quality review
 
-Review a diff for bugs, security and performance. You get the repo path, the base, the issues, and what is already covered.
+Review a diff for bugs, security and performance. You get the repo path, the base, the issues (or a task description and plan), what is out of scope, and what is already covered.
 
-1. Read `git diff <base>` in the repo, and enough of the surrounding code to judge each change. Look for what lint, type-check and tests miss:
+1. Read `git diff <base>` in the repo, skipping what is out of scope, and enough of the surrounding code to judge each change. Look for what lint, type-check and tests miss:
    - **bugs**: wrong logic; empty, null, offline, retry and concurrency cases; silent failures;
    - **security**: unvalidated input, injection, auth or permission gaps, secrets in code or logs;
    - **performance**: N+1 queries, work repeated per render or request, unbounded lists or loops, leaked listeners, timers or subscriptions.

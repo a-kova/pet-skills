@@ -29,7 +29,7 @@ Write the per-repo files the workflow skills read. Explore first, show a draft, 
 3. **Confirm.** Show the draft of every file and section you will write or change, as diffs against what exists. Let the user edit it, and wait for their OK.
 
 4. **Write.**
-   - `docs/agents/issue-tracker.md`, `docs/agents/labels.md` and `docs/agents/domain.md` from [templates/](templates/), as they are.
+   - `docs/agents/issue-tracker.md`, `docs/agents/labels.md` and `docs/agents/domain.md` from [templates/](templates/): as they are when missing; an existing one gets only the template text it lacks, as approved in step 3.
    - `CODING_STANDARDS.md` from [templates/CODING_STANDARDS.md](templates/CODING_STANDARDS.md), only when it is missing.
    - The sections of [templates/claude-md.md](templates/claude-md.md) into `CLAUDE.md`, filled with the answers. Update a section that already exists in place; add only the missing ones. When neither `CLAUDE.md` nor `AGENTS.md` exists, create `CLAUDE.md`.
    - `gh label create` for each missing label.

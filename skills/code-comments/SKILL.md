@@ -30,7 +30,7 @@ holds today:
 5. **A true constraint on our own code that the code cannot show yet**, such
    as a required call order, or a line that looks removable but is not. It
    stays only until a code change, type, assertion, or test removes the
-   need (steps 2 and 4).
+   need (Judge steps 2 and 4).
 6. **A `TODO` that links a tracked issue.**
 
 ## Judge each comment
@@ -43,7 +43,7 @@ Take each comment in scope through these steps in order.
    check, not reasons to keep.
 2. **Make the code say it.** When a comment explains our own code, change
    the code so the comment is unneeded, then delete it. In a cleanup or
-   review, make only changes that keep behavior the same: rename after
+   review, make only changes that keep behaviour the same: rename after
    checking the consumers, or extract a named constant or local variable.
    For a change to what a function does or takes, even a private one,
    report the exact symbol and the change instead. The comment then goes to
@@ -86,12 +86,13 @@ check. Look up what the rule catches before judging one.
    each comment was written. The next reader will not, and a subagent with
    no shared context will not either, so it judges the way that reader
    would. Give it the path to this file and the scope. Tell it to edit only
-   comments, and to report proposed code changes, encodings, and
-   suppressions. Without a subagent tool, run the pass yourself.
+   comments and make the behaviour-preserving changes of Judge step 2, and
+   to report other code changes, encodings, and suppressions. Without a
+   subagent tool, run the pass yourself.
 3. **Judge each comment** as above.
 4. **Audit the subagent's work**, if one ran the pass. Restore a deletion
-   only when the comment fits a keep-list item as written. Revert any
-   change outside comments.
+   only when the comment fits a keep-list item as written. Revert any code
+   change that Judge step 2 does not allow in a cleanup.
 5. **Report**, starting with the number of comments deleted. Then list each
    comment kept with its keep-list item, each code change made or proposed
    with its symbol, encoding offers, suppressions reported, and `TODO`s
@@ -106,7 +107,7 @@ For a comment that stays:
 
 - One or two lines. Longer only when the constraint needs it.
 - Plain words and the domain's own names.
-- Every claim follows from the code, a verified behavior, or a maintained
+- Every claim follows from the code, a verified behaviour, or a maintained
   source. A performance number from memory does not.
 - State a runtime invariant precisely.
 - For a workaround, explain the mechanism in execution order and the caveat
