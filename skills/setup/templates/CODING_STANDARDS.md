@@ -4,7 +4,7 @@ Read when planning, implementing or reviewing code. A spec's Technical notes fol
 
 ## Code layout
 
-<Where each kind of code lives, when the project has a rule for it. Delete this line while there is none.>
+<Where each kind of code lives, when the project has a rule for it. Delete this section when there is none.>
 
 ## Lint suppressions
 

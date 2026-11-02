@@ -16,6 +16,7 @@ Write the per-repo files the workflow skills read. Explore first, show a draft, 
    - Each app's lint, type-check, format and test commands, from its `package.json` scripts or equivalent build files. An app is the repo root or a workspace folder with its own manifest.
    - Branches that deploy when pushed: workflow files under `.github/workflows/` and their `on.push.branches`.
    - Monorepo signals: `pnpm-workspace.yaml`, a `workspaces` field, or `packages/*` with their own `src/`.
+   - Config left by another skill set: sections, files under `docs/agents/` or labels that name skills pet doesn't have (e.g. `/triage`, `/wayfinder`, a `triage-labels.md`), or give a pet label another meaning.
 
 2. **Present findings and ask.** Summarise what is present and what is missing. Then ask only what exploration could not settle, one question per message, recommended answer first:
    - **Issue tracker**: GitHub through `gh` is the only tracker the skills support. When no remote points at GitHub, offer to create one (`gh repo create`) or add one; stop when the user declines.
@@ -24,15 +25,17 @@ Write the per-repo files the workflow skills read. Explore first, show a draft, 
    - **Git**: does pushing any branch deploy something? Recommend what the workflow files show; with none, "nothing deploys, all work on `main`".
    - **Labels**: keep the defaults?
    - **Domain docs**: single-context without asking, unless monorepo signals exist; then ask single- or multi-context. `domain.md` covers both; the answer only sets the line in `CLAUDE.md`.
+   - **Leftover config**: for each piece found, whether to remove it. Recommend removing what conflicts with pet's labels or names skills that aren't installed. Never delete GitHub labels; offer to update a conflicting label's description instead.
    - **Review skills**: the quality reviewer runs its own checks on every diff either way; should it also call extra skills? Recommend "Default (built-in review only)". Never label that option "None": it reads as no code review at all.
 
 3. **Confirm.** Show the draft of every file and section you will write or change, as diffs against what exists. Let the user edit it, and wait for their OK.
 
 4. **Write.**
-   - `docs/agents/issue-tracker.md`, `docs/agents/labels.md` and `docs/agents/domain.md` from [templates/](templates/): as they are when missing; an existing one gets only the template text it lacks, as approved in step 3.
-   - `CODING_STANDARDS.md` from [templates/CODING_STANDARDS.md](templates/CODING_STANDARDS.md), only when it is missing.
+   - `docs/agents/issue-tracker.md`, `docs/agents/labels.md` and `docs/agents/domain.md` from [templates/](templates/): as they are when missing. For an existing one, go through the template's `##` sections one by one and add each section, or each bullet within one, that the file lacks, as approved in step 3. The workflow skills look these up by name (`/pet:implement` reads **Next sub-issue**), so a section the file covers under other wording still gets the template's.
+   - `CODING_STANDARDS.md` from [templates/CODING_STANDARDS.md](templates/CODING_STANDARDS.md), only when it is missing. Fill **Code layout** from what exploration showed, or drop the section when the project has no rule for it.
    - The sections of [templates/claude-md.md](templates/claude-md.md) into `CLAUDE.md`, filled with the answers. Update a section that already exists in place; add only the missing ones. When neither `CLAUDE.md` nor `AGENTS.md` exists, create `CLAUDE.md`.
    - `gh label create` for each missing label.
+   - Remove the leftover config the user chose to drop, and run `gh label edit --description` for each label description they approved.
    - Offer to commit `.claude/settings.json` entries, so opening the repo on another machine offers the plugin: `"extraKnownMarketplaces": {"pet-skills": {"source": {"source": "github", "repo": "a-kova/pet-skills"}}}` and `"enabledPlugins": {"pet@pet-skills": true}`, merged into what is there.
 
 5. **Report** the files written and the labels created, and that the next step is `/pet:spec <idea>`. The user edits these files directly later; running `/pet:setup` again is only needed to redo the setup.
