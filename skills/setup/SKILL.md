@@ -24,7 +24,7 @@ Write the per-repo files the workflow skills read. Explore first, show a draft, 
    - **Git**: does pushing any branch deploy something? Recommend what the workflow files show; with none, "nothing deploys, all work on `main`".
    - **Labels**: keep the defaults?
    - **Domain docs**: single-context without asking, unless monorepo signals exist; then ask single- or multi-context. `domain.md` covers both; the answer only sets the line in `CLAUDE.md`.
-   - **Review skills**: any skills the quality reviewer should call on every diff? Recommend none.
+   - **Review skills**: the quality reviewer runs its own checks on every diff either way; should it also call extra skills? Recommend "Default (built-in review only)". Never label that option "None": it reads as no code review at all.
 
 3. **Confirm.** Show the draft of every file and section you will write or change, as diffs against what exists. Let the user edit it, and wait for their OK.
 
